@@ -1,0 +1,17 @@
+{{- $id := .Get "id" -}}
+{{- if not $id -}}
+  {{- errorf "O shortcode youtube requer o parâmetro id: %s" .Position -}}
+{{- end -}}
+{{- $title := .Get "title" | default "Vídeo do YouTube" -}}
+<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;max-width:100%;margin:1.5rem 0;">
+  <iframe
+    src="https://www.youtube-nocookie.com/embed/{{ $id }}"
+    title="{{ $title }}"
+    style="position:absolute;inset:0;width:100%;height:100%;border:0;"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    loading="lazy"
+    allowfullscreen>
+  </iframe>
+</div>
+

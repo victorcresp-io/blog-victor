@@ -1,0 +1,39 @@
+# Configuração do FrankMD para o Caderno Aberto.
+locale = pt-BR
+theme = system
+editor_font = fira-code
+editor_font_size = 16
+preview_zoom = 100
+sidebar_visible = true
+typewriter_mode = false
+
+# Mantém os posts no formato content/posts/meu-post.md usado pelo blog.
+hugo_path_style = flat
+
+
+# AI/LLM (for grammar checking)
+# Provider priority when ai_provider = auto: openai > anthropic > openrouter > ollama > gemini
+# Gemini is lowest priority for text (its key is mainly for image generation)
+
+# ai_provider = auto
+# ai_model = (uses provider-specific default if not set)
+
+# OpenAI (recommended)
+# openai_api_key = sk-...
+# openai_model = gpt-4o-mini
+
+# Anthropic (Claude models)
+# anthropic_api_key = sk-ant-...
+# anthropic_model = claude-sonnet-4-20250514
+
+# Google Gemini
+# gemini_api_key = ...
+# gemini_model = gemini-2.0-flash
+
+# OpenRouter (multiple providers, pay-per-use)
+# openrouter_api_key = sk-or-...
+# openrouter_model = openai/gpt-4o-mini
+
+# Ollama (local, free) - for privacy, requires local setup
+# ollama_api_base = http://localhost:11434
+# ollama_model = llama3.2:latest

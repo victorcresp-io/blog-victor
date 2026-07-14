@@ -1,9 +1,12 @@
-.PHONY: setup serve build clean new
+.PHONY: setup serve preview build clean new editor
 
 setup:
 	@hugo mod get -u
 
 serve:
+	@hugo server --disableFastRender
+
+preview:
 	@hugo server --buildDrafts --disableFastRender
 
 build:
@@ -15,3 +18,6 @@ clean:
 new:
 	@hugo new content posts/nova-publicacao.md
 
+editor:
+	@test -f "$$HOME/.config/frankmd/fed.sh" || { echo "FrankMD não encontrado. Consulte a seção FrankMD no README."; exit 1; }
+	@bash -c 'source "$$HOME/.config/frankmd/fed.sh" && fed content/posts'
