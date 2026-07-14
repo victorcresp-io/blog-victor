@@ -1,0 +1,9 @@
+dataengineervictor.com {
+	root * /var/www/caderno-aberto
+	encode zstd gzip
+	file_server
+}
+
+www.dataengineervictor.com {
+	redir https://dataengineervictor.com{uri} permanent
+}

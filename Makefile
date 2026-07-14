@@ -1,4 +1,4 @@
-.PHONY: setup serve preview build clean new editor
+.PHONY: setup serve preview build deploy clean new editor
 
 setup:
 	@hugo mod get -u
@@ -11,6 +11,11 @@ preview:
 
 build:
 	@hugo --minify
+
+deploy: build
+	@install -d -m 0755 /var/www/caderno-aberto
+	@rsync -a --delete public/ /var/www/caderno-aberto/
+	@echo "Site publicado em https://dataengineervictor.com"
 
 clean:
 	@rm -rf public resources/_gen

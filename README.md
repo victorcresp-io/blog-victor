@@ -92,13 +92,30 @@ Edite o arquivo criado em `content/posts/`, altere `draft` para `false` e rode o
 
 ## Gerar para produção
 
-Atualize `baseURL` em `hugo.toml` com o domínio real e execute:
+O domínio de produção é `https://dataengineervictor.com`. Para gerar os arquivos localmente, execute:
 
 ```bash
 hugo --minify
 ```
 
 O site final será criado em `public/` e pode ser publicado no GitHub Pages, Cloudflare Pages, Netlify ou qualquer hospedagem de arquivos estáticos.
+
+## Publicar na VPS
+
+A VPS usa Caddy e serve os arquivos de `/var/www/caderno-aberto`. A configuração versionada está em `deploy/Caddyfile`; a cópia ativa fica em `/etc/caddy/Caddyfile`.
+
+Na VPS, publique uma nova versão com:
+
+```bash
+make deploy
+```
+
+O comando gera somente o conteúdo publicado (`draft: false`) e sincroniza `public/` com o diretório servido pelo Caddy. Para validar ou recarregar uma alteração na configuração do servidor:
+
+```bash
+caddy validate --config /etc/caddy/Caddyfile
+systemctl reload caddy
+```
 
 ## Pontos para personalizar
 
@@ -107,3 +124,4 @@ O site final será criado em `public/` e pode ser publicado no GitHub Pages, Clo
 - Página institucional: `content/about.md`
 - Posts: `content/posts/`
 - URL do site: propriedade `baseURL` em `hugo.toml`
+- Servidor web e redirecionamento de `www`: `deploy/Caddyfile`

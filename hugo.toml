@@ -1,4 +1,4 @@
-baseURL = "https://example.org/"
+baseURL = "https://dataengineervictor.com/"
 title = "Caderno Aberto"
 defaultContentLanguage = "pt-br"
 enableEmoji = true
@@ -88,4 +88,3 @@ summaryLength = 24
   [[params.socialIcons]]
     name = "Rss"
     url = "/index.xml"
-
